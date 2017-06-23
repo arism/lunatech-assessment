@@ -1,0 +1,11 @@
+# Intellij
+.idea/
+*.iws
+
+# Mac
+.DS_Store
+
+# sbt
+target/
+src_managed/
+project/boot/
