@@ -6,12 +6,12 @@ import scala.io.{Source, StdIn}
 
 object LunatechAssessmentApp extends App {
 
-  implicit lazy val csvCountryReader = new CountryCsvReader(Source.fromResource("data/countries.csv"))
-  implicit lazy val csvAirportReader = new AirportCsvReader(Source.fromResource("data/airports.csv"))
-  implicit lazy val csvRunwayReader = new RunwayCsvReader(Source.fromResource("data/runways.csv"))
-  implicit lazy val service = new Service
-  val controller = new Controller
+  val csvCountryReader = new CountryCsvReader(Source.fromResource("data/countries.csv"))
+  val csvAirportReader = new AirportCsvReader(Source.fromResource("data/airports.csv"))
+  val csvRunwayReader = new RunwayCsvReader(Source.fromResource("data/runways.csv"))
 
+  val service = new Service(csvCountryReader,csvAirportReader,csvRunwayReader)
+  val controller = new Controller(service)
 
   implicit val system = ActorSystem()
   implicit val materializer = ActorMaterializer()

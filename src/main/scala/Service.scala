@@ -1,8 +1,8 @@
 import java.text.Normalizer
 
-class Service(implicit private val countryCsvReader: CountryCsvReader,
-              implicit private val airportCsvReader: AirportCsvReader,
-              implicit private val runwayCsvReader: RunwayCsvReader) {
+class Service(private val countryCsvReader: CountryCsvReader,
+              private val airportCsvReader: AirportCsvReader,
+              private val runwayCsvReader: RunwayCsvReader) {
 
   println ("Loading csv data ...")
 

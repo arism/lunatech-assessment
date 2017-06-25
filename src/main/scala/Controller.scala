@@ -12,7 +12,7 @@ trait JsonSupport extends SprayJsonSupport with DefaultJsonProtocol {
 
 }
 
-class Controller(implicit private val service: Service) extends Directives with JsonSupport {
+class Controller(private val service: Service) extends Directives with JsonSupport {
   val route =
     pathPrefix("api") {
       pathPrefix("countries") {
